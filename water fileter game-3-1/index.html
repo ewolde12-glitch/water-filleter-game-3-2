@@ -3,264 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>charity: water - Clean Water Game</title>
-
-    <style>
-        /* General page design */
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f9fc;
-            color: #17324d;
-            text-align: center;
-        }
-
-        /* Header and branding */
-        header {
-            background-color: #ffffff;
-            padding: 20px;
-            border-bottom: 4px solid #ffc907;
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: #1596d2;
-        }
-
-        .logo span {
-            color: #ffc907;
-        }
-
-        header p {
-            margin-bottom: 0;
-        }
-
-        /* Main game area */
-        main {
-            max-width: 850px;
-            margin: 25px auto;
-            padding: 20px;
-        }
-
-        .intro {
-            margin-bottom: 20px;
-        }
-
-        /* Scoreboard */
-        .scoreboard {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .score-card {
-            background: white;
-            padding: 15px 25px;
-            border-radius: 12px;
-            min-width: 120px;
-            box-shadow: 0 3px 10px #dce6ed;
-        }
-
-        .score-card h3 {
-            margin: 0 0 8px;
-            font-size: 15px;
-        }
-
-        .score-card p {
-            margin: 0;
-            font-size: 25px;
-            font-weight: bold;
-            color: #1596d2;
-        }
-
-        /* Buttons */
-        button {
-            border: none;
-            border-radius: 8px;
-            padding: 12px 22px;
-            margin: 5px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        button:focus-visible {
-            outline: 3px solid #17324d;
-            outline-offset: 3px;
-        }
-
-        .start-button {
-            background-color: #1596d2;
-            color: white;
-        }
-
-        .reset-button {
-            background-color: #ffc907;
-            color: #17324d;
-        }
-
-        button:hover {
-            opacity: 0.85;
-        }
-
-        button:disabled {
-            cursor: not-allowed;
-            opacity: 0.55;
-        }
-
-        /* Difficulty selector */
-        select {
-            padding: 10px;
-            border: 2px solid #1596d2;
-            border-radius: 8px;
-            font-size: 16px;
-            margin: 10px;
-        }
-
-        /* Game instructions */
-        .instructions {
-            background: white;
-            padding: 15px;
-            border-radius: 12px;
-            margin: 20px 0;
-            line-height: 1.8;
-        }
-
-        /* Play area */
-        #gameArea {
-            position: relative;
-            min-height: 350px;
-            overflow: hidden;
-            background-color: #dff4ff;
-            border: 3px solid #1596d2;
-            border-radius: 15px;
-            margin-top: 20px;
-        }
-
-        .game-message {
-            padding: 12px;
-            min-height: 48px;
-            font-weight: bold;
-            font-size: 18px;
-        }
-
-        /* Game items */
-        .game-item {
-            position: absolute;
-            border: none;
-            background: transparent;
-            padding: 5px;
-            margin: 0;
-            font-size: 35px;
-            line-height: 1.2;
-            cursor: pointer;
-            user-select: none;
-            touch-action: manipulation;
-            animation: float 1.5s ease-in-out infinite alternate;
-        }
-
-        .game-item:hover {
-            transform: scale(1.15);
-        }
-
-        @keyframes float {
-            from {
-                margin-top: 0;
-            }
-
-            to {
-                margin-top: 8px;
-            }
-        }
-
-        /* Progress bar */
-        .progress-container {
-            background: #dce6ed;
-            height: 20px;
-            border-radius: 10px;
-            overflow: hidden;
-            margin: 20px 0;
-        }
-
-        #progressBar {
-            width: 0%;
-            height: 100%;
-            background-color: #1596d2;
-            transition: width 0.3s;
-        }
-
-        /* Footer */
-        footer {
-            background: #17324d;
-            color: white;
-            padding: 20px;
-            margin-top: 35px;
-        }
-
-        footer p {
-            margin: 5px;
-        }
-
-        /* Mobile-friendly layout */
-        @media (max-width: 600px) {
-            main {
-                padding: 12px;
-            }
-
-            .score-card {
-                min-width: 95px;
-                padding: 12px;
-            }
-
-            #gameArea {
-                min-height: 400px;
-            }
-
-            .game-item {
-                font-size: 32px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
     <header>
         <div class="logo">charity: <span>water</span> 💧</div>
         <p>Small actions can make a big difference!</p>
     </header>
 
     <main>
-
         <section class="intro">
             <h1>Catch the Clean Water!</h1>
-
             <p>
                 Help make every drop count. Collect clean water,
                 avoid germs and trash, and reach your goal!
             </p>
         </section>
 
-        <!-- Difficulty selection -->
-        <label for="difficulty">Choose your difficulty:</label>
+        <div class="difficulty-control">
+            <label for="difficulty">Choose your difficulty:</label>
+            <select id="difficulty" aria-label="Choose game difficulty">
+                <option value="easy">Easy</option>
+                <option value="normal" selected>Normal</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
 
-        <select id="difficulty">
-            <option value="easy">Easy</option>
-            <option value="normal" selected>Normal</option>
-            <option value="hard">Hard</option>
-        </select>
-
-        <!-- Scoreboard -->
         <section class="scoreboard" aria-label="Game statistics">
-
             <div class="score-card">
                 <h3>Score</h3>
                 <p id="score">0</p>
@@ -275,10 +45,8 @@
                 <h3>Goal</h3>
                 <p id="goal">100</p>
             </div>
-
         </section>
 
-        <!-- Progress indicator -->
         <p id="progressText">Progress: 0%</p>
 
         <div
@@ -293,26 +61,17 @@
             <div id="progressBar"></div>
         </div>
 
-        <!-- Game instructions -->
         <section class="instructions">
             <h2>How to Play</h2>
-
             <p>💧 Clean water: +10 points</p>
             <p>🦠 Germs: -5 points</p>
             <p>🗑️ Trash: -10 points</p>
             <p>🏆 Reach your goal before the timer ends!</p>
         </section>
 
-        <!-- Controls -->
-        <button class="start-button" id="startButton">
-            Start Game
-        </button>
+        <button class="start-button" id="startButton">Start Game</button>
+        <button class="reset-button" id="resetButton">Reset Game</button>
 
-        <button class="reset-button" id="resetButton">
-            Reset Game
-        </button>
-
-        <!-- Feedback for the player -->
         <div
             class="game-message"
             id="message"
@@ -322,10 +81,7 @@
             Press Start Game to begin!
         </div>
 
-        <!-- Interactive play area -->
-        <section id="gameArea" aria-label="Game play area">
-        </section>
-
+        <section id="gameArea" aria-label="Game play area"></section>
     </main>
 
     <footer>
@@ -334,397 +90,6 @@
         <p>Educational student game project.</p>
     </footer>
 
-    <script>
-        // =====================================
-        // 1. GAME SETTINGS
-        // =====================================
-
-        const gameSettings = {
-            easy: {
-                time: 30,
-                goal: 70,
-                spawnSpeed: 1000
-            },
-
-            normal: {
-                time: 30,
-                goal: 100,
-                spawnSpeed: 800
-            },
-
-            hard: {
-                time: 30,
-                goal: 150,
-                spawnSpeed: 550
-            }
-        };
-
-        // Store information about the game objects.
-        const gameItems = [
-            {
-                name: "water",
-                emoji: "💧",
-                points: 10
-            },
-
-            {
-                name: "germ",
-                emoji: "🦠",
-                points: -5
-            },
-
-            {
-                name: "trash",
-                emoji: "🗑️",
-                points: -10
-            }
-        ];
-
-        // =====================================
-        // 2. GAME VARIABLES
-        // =====================================
-
-        let score = 0;
-        let timeLeft = 30;
-        let goal = 100;
-        let gameRunning = false;
-
-        let timerInterval = null;
-        let spawnInterval = null;
-
-        // =====================================
-        // 3. CONNECT TO HTML ELEMENTS
-        // =====================================
-
-        const scoreDisplay = document.getElementById("score");
-        const timeDisplay = document.getElementById("time");
-        const goalDisplay = document.getElementById("goal");
-
-        const message = document.getElementById("message");
-        const gameArea = document.getElementById("gameArea");
-
-        const startButton = document.getElementById("startButton");
-        const resetButton = document.getElementById("resetButton");
-
-        const difficultySelect = document.getElementById("difficulty");
-
-        const progressBar = document.getElementById("progressBar");
-        const progressText = document.getElementById("progressText");
-
-        const progressContainer =
-            document.getElementById("progressContainer");
-
-        // =====================================
-        // 4. UPDATE THE SCOREBOARD
-        // =====================================
-
-        function updateDisplay() {
-            scoreDisplay.textContent = score;
-            timeDisplay.textContent = timeLeft;
-            goalDisplay.textContent = goal;
-
-            // Calculate progress toward the goal.
-            const progress = Math.min(
-                100,
-                Math.max(0, (score / goal) * 100)
-            );
-
-            progressBar.style.width = progress + "%";
-            progressText.textContent =
-                "Progress: " + Math.round(progress) + "%";
-
-            progressContainer.setAttribute(
-                "aria-valuenow",
-                Math.round(progress)
-            );
-        }
-
-        // =====================================
-        // 5. GENERATE GAME ITEMS
-        // =====================================
-
-        function createGameItem() {
-
-            // Do not create items after the game ends.
-            if (!gameRunning) {
-                return;
-            }
-
-            // Randomly choose a water drop, germ, or trash item.
-            const randomIndex = Math.floor(
-                Math.random() * gameItems.length
-            );
-
-            const itemData = gameItems[randomIndex];
-
-            // Create a new HTML button using the DOM.
-            const item = document.createElement("button");
-
-            item.classList.add("game-item");
-
-            item.textContent = itemData.emoji;
-
-            item.type = "button";
-
-            item.setAttribute(
-                "aria-label",
-                itemData.name + ", " + itemData.points + " points"
-            );
-
-            // Save information about the selected item.
-            item.dataset.name = itemData.name;
-            item.dataset.points = itemData.points;
-
-            // Place the item at a random location.
-            const maxX = Math.max(0, gameArea.clientWidth - 60);
-            const maxY = Math.max(0, gameArea.clientHeight - 60);
-
-            item.style.left = Math.random() * maxX + "px";
-            item.style.top = Math.random() * maxY + "px";
-
-            // Respond when the player clicks the item.
-            item.addEventListener("click", function () {
-
-                if (!gameRunning) {
-                    return;
-                }
-
-                const points = Number(item.dataset.points);
-                const itemName = item.dataset.name;
-
-                // Remove the clicked item from the page.
-                item.remove();
-
-                // Update the score.
-                score = Math.max(0, score + points);
-
-                // Display feedback based on the item.
-                if (itemName === "water") {
-                    message.textContent =
-                        "Great job! Clean water +10 points! 💧";
-                } else if (itemName === "germ") {
-                    message.textContent =
-                        "Oh no! Germs cost you 5 points! 🦠";
-                } else {
-                    message.textContent =
-                        "Watch out! Trash cost you 10 points! 🗑️";
-                }
-
-                updateDisplay();
-
-                // Check whether the player has won.
-                checkWinCondition();
-            });
-
-            // Add the new item to the game area.
-            gameArea.appendChild(item);
-
-            // Keep the game area manageable.
-            // Remove the oldest item if there are more than 12.
-            const items = gameArea.querySelectorAll(".game-item");
-
-            if (items.length > 12) {
-                items[0].remove();
-            }
-        }
-
-        // =====================================
-        // 6. CHECK WINNING CONDITIONS
-        // =====================================
-
-        function checkWinCondition() {
-
-            if (score >= goal && gameRunning) {
-
-                // Stop the game and its timers.
-                endGame(true);
-
-                message.textContent =
-                    "🎉 YOU WIN! You reached the clean water goal! 🏆";
-
-                // Celebrate the win.
-                showCelebration();
-            }
-        }
-
-        // =====================================
-        // 7. WIN CELEBRATION
-        // =====================================
-
-        function showCelebration() {
-
-            // Create multiple celebration elements using a loop.
-            const celebrationEmojis = ["🎉", "💧", "⭐", "🏆"];
-
-            for (let i = 0; i < 20; i++) {
-
-                const celebration = document.createElement("span");
-
-                celebration.textContent =
-                    celebrationEmojis[
-                        Math.floor(
-                            Math.random() * celebrationEmojis.length
-                        )
-                    ];
-
-                celebration.style.position = "fixed";
-                celebration.style.left = Math.random() * 95 + "vw";
-                celebration.style.top = Math.random() * 80 + "vh";
-                celebration.style.fontSize = "25px";
-                celebration.style.pointerEvents = "none";
-                celebration.style.zIndex = "1000";
-
-                document.body.appendChild(celebration);
-
-                // Remove celebration elements after two seconds.
-                setTimeout(function () {
-                    celebration.remove();
-                }, 2000);
-            }
-        }
-
-        // =====================================
-        // 8. END THE GAME
-        // =====================================
-
-        function endGame(won) {
-
-            gameRunning = false;
-
-            clearInterval(timerInterval);
-            clearInterval(spawnInterval);
-
-            // Remove all remaining game items.
-            gameArea.replaceChildren();
-
-            startButton.disabled = false;
-
-            if (won) {
-                message.textContent =
-                    "🎉 Congratulations! You won with " +
-                    score + " points!";
-            } else {
-                message.textContent =
-                    "⏰ Time is up! Your score is " +
-                    score + ". Press Start to try again!";
-            }
-        }
-
-        // =====================================
-        // 9. START THE GAME
-        // =====================================
-
-        function startGame() {
-
-            // Prevent multiple games from running simultaneously.
-            if (gameRunning) {
-                return;
-            }
-
-            // Read the selected difficulty.
-            const selectedDifficulty = difficultySelect.value;
-
-            const settings = gameSettings[selectedDifficulty];
-
-            // Reset the game variables.
-            score = 0;
-            timeLeft = settings.time;
-            goal = settings.goal;
-
-            gameRunning = true;
-
-            gameArea.replaceChildren();
-
-            updateDisplay();
-
-            message.textContent =
-                "Game started! Catch the clean water! 💧";
-
-            startButton.disabled = true;
-            difficultySelect.disabled = true;
-
-            // Create game items repeatedly.
-            createGameItem();
-
-            spawnInterval = setInterval(
-                createGameItem,
-                settings.spawnSpeed
-            );
-
-            // Countdown timer.
-            timerInterval = setInterval(function () {
-
-                if (!gameRunning) {
-                    return;
-                }
-
-                timeLeft--;
-
-                updateDisplay();
-
-                // Check whether the player has run out of time.
-                if (timeLeft <= 0) {
-
-                    timeLeft = 0;
-
-                    updateDisplay();
-
-                    endGame(false);
-                }
-
-            }, 1000);
-        }
-
-        // =====================================
-        // 10. RESET THE GAME
-        // =====================================
-
-        function resetGame() {
-
-            // Stop any running timers.
-            clearInterval(timerInterval);
-            clearInterval(spawnInterval);
-
-            gameRunning = false;
-
-            // Reset all game values.
-            score = 0;
-            timeLeft = 30;
-            goal = 100;
-
-            // Remove all game items.
-            gameArea.replaceChildren();
-
-            // Enable the controls.
-            startButton.disabled = false;
-            difficultySelect.disabled = false;
-
-            // Reset the difficulty to Normal.
-            difficultySelect.value = "normal";
-
-            updateDisplay();
-
-            message.textContent =
-                "Game reset! Press Start Game to play again.";
-        }
-
-        // =====================================
-        // 11. EVENT LISTENERS
-        // =====================================
-
-        // Start the game when the player clicks Start.
-        startButton.addEventListener("click", startGame);
-
-        // Reset everything when the player clicks Reset.
-        resetButton.addEventListener("click", resetGame);
-
-        // =====================================
-        // 12. INITIALIZE THE GAME
-        // =====================================
-
-        resetGame();
-
-    </script>
-
+    <script src="script.js" defer></script>
 </body>
 </html>

@@ -1,6 +1,14 @@
-/* =====================================
-   1. GENERAL PAGE DESIGN
-===================================== */
+:root {
+    --sky-50: #f4f9fc;
+    --sky-100: #dff4ff;
+    --sky-300: #9ed9f7;
+    --sky-500: #1596d2;
+    --sky-700: #0f6fa9;
+    --navy-700: #17324d;
+    --gold-400: #ffc907;
+    --white: #ffffff;
+    --shadow: rgba(23, 50, 77, 0.12);
+}
 
 * {
     box-sizing: border-box;
@@ -9,218 +17,200 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f9fc;
-    color: #17324d;
+    background: linear-gradient(180deg, var(--sky-50) 0%, #eaf7ff 100%);
+    color: var(--navy-700);
     text-align: center;
     line-height: 1.5;
 }
 
-/* =====================================
-   2. HEADER AND BRANDING
-===================================== */
-
 header {
-    background-color: #ffffff;
-    padding: 20px;
-    border-bottom: 4px solid #ffc907;
+    background: linear-gradient(180deg, var(--white) 0%, #f5fbff 100%);
+    padding: 24px 20px;
+    border-bottom: 4px solid var(--gold-400);
+    box-shadow: 0 6px 18px rgba(21, 150, 210, 0.08);
 }
 
 .logo {
-    font-size: 28px;
-    font-weight: bold;
-    color: #1596d2;
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: var(--sky-500);
 }
 
 .logo span {
-    color: #ffc907;
+    color: var(--gold-400);
 }
 
 header p {
-    margin-bottom: 0;
+    margin: 8px 0 0;
+    font-size: 1.05rem;
 }
 
-/* =====================================
-   3. MAIN GAME AREA
-===================================== */
-
 main {
-    max-width: 850px;
-    margin: 25px auto;
+    max-width: 900px;
+    margin: 30px auto;
     padding: 20px;
 }
 
 .intro {
-    margin-bottom: 20px;
+    margin-bottom: 22px;
 }
 
 .intro h1 {
-    font-size: 32px;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin: 0 0 12px;
 }
 
 .intro p {
-    font-size: 17px;
+    font-size: 1.1rem;
+    max-width: 640px;
+    margin: 0 auto;
 }
-
-/* =====================================
-   4. DIFFICULTY SELECTOR
-===================================== */
 
 .difficulty-control {
-    margin: 20px 0;
-}
-
-.difficulty-control label {
+    margin: 24px 0 16px;
     font-weight: bold;
 }
 
 select {
-    padding: 10px;
-    border: 2px solid #1596d2;
-    border-radius: 8px;
-    font-size: 16px;
-    margin: 10px;
-    background-color: white;
-    color: #17324d;
+    padding: 10px 14px;
+    border: 2px solid var(--sky-500);
+    border-radius: 10px;
+    font-size: 1rem;
+    margin-left: 10px;
+    background-color: var(--white);
+    color: var(--navy-700);
 }
-
-/* =====================================
-   5. SCOREBOARD
-===================================== */
 
 .scoreboard {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 15px;
-    margin: 20px 0;
+    margin: 22px 0;
 }
 
 .score-card {
-    background: white;
-    padding: 15px 25px;
-    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 16px 22px;
+    border-radius: 14px;
     min-width: 120px;
-    box-shadow: 0 3px 10px #dce6ed;
+    box-shadow: 0 6px 16px var(--shadow);
+    border: 1px solid rgba(21, 150, 210, 0.1);
 }
 
 .score-card h3 {
     margin: 0 0 8px;
-    font-size: 15px;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--navy-700);
 }
 
 .score-card p {
     margin: 0;
-    font-size: 25px;
-    font-weight: bold;
-    color: #1596d2;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--sky-500);
 }
-
-/* =====================================
-   6. BUTTONS
-===================================== */
-
-button {
-    border: none;
-    border-radius: 8px;
-    padding: 12px 22px;
-    margin: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-button:focus-visible {
-    outline: 3px solid #17324d;
-    outline-offset: 3px;
-}
-
-.start-button {
-    background-color: #1596d2;
-    color: white;
-}
-
-.reset-button {
-    background-color: #ffc907;
-    color: #17324d;
-}
-
-button:hover:not(:disabled) {
-    opacity: 0.85;
-}
-
-button:disabled {
-    cursor: not-allowed;
-    opacity: 0.55;
-}
-
-/* =====================================
-   7. GAME INSTRUCTIONS
-===================================== */
-
-.instructions {
-    background: white;
-    padding: 15px;
-    border-radius: 12px;
-    margin: 20px 0;
-    line-height: 1.8;
-    box-shadow: 0 3px 10px #dce6ed;
-}
-
-.instructions h2 {
-    margin-top: 0;
-}
-
-/* =====================================
-   8. PROGRESS BAR
-===================================== */
 
 #progressText {
-    font-weight: bold;
+    font-weight: 700;
+    margin: 10px 0 0;
 }
 
 .progress-container {
-    background: #dce6ed;
-    height: 20px;
-    border-radius: 10px;
+    background: #d9eaf3;
+    height: 22px;
+    border-radius: 999px;
     overflow: hidden;
-    margin: 20px 0;
+    margin: 15px auto 18px;
+    max-width: 480px;
+    box-shadow: inset 0 2px 5px rgba(23, 50, 77, 0.08);
 }
 
 #progressBar {
     width: 0%;
     height: 100%;
-    background-color: #1596d2;
+    background: linear-gradient(90deg, var(--sky-500), var(--sky-300));
     transition: width 0.3s ease;
 }
 
-/* =====================================
-   9. PLAYER FEEDBACK
-===================================== */
-
-.game-message {
-    padding: 12px;
-    min-height: 48px;
-    font-weight: bold;
-    font-size: 18px;
+.instructions {
+    background: rgba(255, 255, 255, 0.96);
+    padding: 18px 20px;
+    border-radius: 14px;
+    margin: 20px auto;
+    line-height: 1.8;
+    box-shadow: 0 6px 16px var(--shadow);
+    max-width: 720px;
 }
 
-/* =====================================
-   10. INTERACTIVE GAME AREA
-===================================== */
+.instructions h2 {
+    margin: 0 0 12px;
+}
+
+.instructions p {
+    margin: 6px 0;
+    font-size: 1rem;
+}
+
+button {
+    border: none;
+    border-radius: 10px;
+    padding: 12px 22px;
+    margin: 6px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
+}
+
+button:hover:not(:disabled) {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+button:focus-visible {
+    outline: 3px solid var(--navy-700);
+    outline-offset: 3px;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.start-button {
+    background: linear-gradient(180deg, var(--sky-500), var(--sky-700));
+    color: var(--white);
+    box-shadow: 0 6px 12px rgba(21, 150, 210, 0.25);
+}
+
+.reset-button {
+    background: linear-gradient(180deg, var(--gold-400), #f2b900);
+    color: var(--navy-700);
+    box-shadow: 0 6px 12px rgba(255, 201, 7, 0.2);
+}
+
+.game-message {
+    padding: 14px 18px;
+    min-height: 52px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-top: 16px;
+    color: var(--navy-700);
+}
 
 #gameArea {
     position: relative;
-    min-height: 350px;
+    min-height: 360px;
     overflow: hidden;
-    background-color: #dff4ff;
-    border: 3px solid #1596d2;
-    border-radius: 15px;
-    margin-top: 20px;
+    background: linear-gradient(180deg, var(--sky-100), #cfeeff);
+    border: 3px solid var(--sky-500);
+    border-radius: 18px;
+    margin-top: 22px;
+    box-shadow: inset 0 0 18px rgba(21, 150, 210, 0.08);
 }
-
-/* =====================================
-   11. GAME OBJECTS
-===================================== */
 
 .game-item {
     position: absolute;
@@ -228,61 +218,46 @@ button:disabled {
     background: transparent;
     padding: 5px;
     margin: 0;
-    font-size: 35px;
+    font-size: clamp(2rem, 4vw, 2.4rem);
     line-height: 1.2;
     cursor: pointer;
     user-select: none;
     touch-action: manipulation;
     animation: float 1.5s ease-in-out infinite alternate;
+    filter: drop-shadow(0 4px 6px rgba(23, 50, 77, 0.12));
 }
 
 .game-item:hover {
-    transform: scale(1.15);
+    transform: scale(1.12);
 }
-
-/* Floating animation */
 
 @keyframes float {
     from {
-        margin-top: 0;
+        transform: translateY(0);
     }
-
     to {
-        margin-top: 8px;
+        transform: translateY(8px);
     }
 }
 
-/* =====================================
-   12. FOOTER
-===================================== */
-
 footer {
-    background: #17324d;
-    color: white;
-    padding: 20px;
+    background: linear-gradient(180deg, var(--navy-700), #0d1f33);
+    color: var(--white);
+    padding: 24px 20px;
     margin-top: 35px;
 }
 
 footer p {
-    margin: 5px;
+    margin: 6px 0;
 }
 
-/* =====================================
-   13. MOBILE-FRIENDLY DESIGN
-===================================== */
-
 @media (max-width: 600px) {
-
     main {
         padding: 12px;
     }
 
-    .intro h1 {
-        font-size: 26px;
-    }
-
     .scoreboard {
-        gap: 8px;
+        gap: 10px;
     }
 
     .score-card {
@@ -294,11 +269,7 @@ footer p {
         min-height: 400px;
     }
 
-    .game-item {
-        font-size: 32px;
-    }
-
     button {
-        padding: 12px 16px;
+        padding: 12px 18px;
     }
 }
