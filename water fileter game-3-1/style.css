@@ -1,0 +1,304 @@
+/* =====================================
+   1. GENERAL PAGE DESIGN
+===================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f9fc;
+    color: #17324d;
+    text-align: center;
+    line-height: 1.5;
+}
+
+/* =====================================
+   2. HEADER AND BRANDING
+===================================== */
+
+header {
+    background-color: #ffffff;
+    padding: 20px;
+    border-bottom: 4px solid #ffc907;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #1596d2;
+}
+
+.logo span {
+    color: #ffc907;
+}
+
+header p {
+    margin-bottom: 0;
+}
+
+/* =====================================
+   3. MAIN GAME AREA
+===================================== */
+
+main {
+    max-width: 850px;
+    margin: 25px auto;
+    padding: 20px;
+}
+
+.intro {
+    margin-bottom: 20px;
+}
+
+.intro h1 {
+    font-size: 32px;
+}
+
+.intro p {
+    font-size: 17px;
+}
+
+/* =====================================
+   4. DIFFICULTY SELECTOR
+===================================== */
+
+.difficulty-control {
+    margin: 20px 0;
+}
+
+.difficulty-control label {
+    font-weight: bold;
+}
+
+select {
+    padding: 10px;
+    border: 2px solid #1596d2;
+    border-radius: 8px;
+    font-size: 16px;
+    margin: 10px;
+    background-color: white;
+    color: #17324d;
+}
+
+/* =====================================
+   5. SCOREBOARD
+===================================== */
+
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.score-card {
+    background: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    min-width: 120px;
+    box-shadow: 0 3px 10px #dce6ed;
+}
+
+.score-card h3 {
+    margin: 0 0 8px;
+    font-size: 15px;
+}
+
+.score-card p {
+    margin: 0;
+    font-size: 25px;
+    font-weight: bold;
+    color: #1596d2;
+}
+
+/* =====================================
+   6. BUTTONS
+===================================== */
+
+button {
+    border: none;
+    border-radius: 8px;
+    padding: 12px 22px;
+    margin: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:focus-visible {
+    outline: 3px solid #17324d;
+    outline-offset: 3px;
+}
+
+.start-button {
+    background-color: #1596d2;
+    color: white;
+}
+
+.reset-button {
+    background-color: #ffc907;
+    color: #17324d;
+}
+
+button:hover:not(:disabled) {
+    opacity: 0.85;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+
+/* =====================================
+   7. GAME INSTRUCTIONS
+===================================== */
+
+.instructions {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    margin: 20px 0;
+    line-height: 1.8;
+    box-shadow: 0 3px 10px #dce6ed;
+}
+
+.instructions h2 {
+    margin-top: 0;
+}
+
+/* =====================================
+   8. PROGRESS BAR
+===================================== */
+
+#progressText {
+    font-weight: bold;
+}
+
+.progress-container {
+    background: #dce6ed;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+#progressBar {
+    width: 0%;
+    height: 100%;
+    background-color: #1596d2;
+    transition: width 0.3s ease;
+}
+
+/* =====================================
+   9. PLAYER FEEDBACK
+===================================== */
+
+.game-message {
+    padding: 12px;
+    min-height: 48px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* =====================================
+   10. INTERACTIVE GAME AREA
+===================================== */
+
+#gameArea {
+    position: relative;
+    min-height: 350px;
+    overflow: hidden;
+    background-color: #dff4ff;
+    border: 3px solid #1596d2;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+/* =====================================
+   11. GAME OBJECTS
+===================================== */
+
+.game-item {
+    position: absolute;
+    border: none;
+    background: transparent;
+    padding: 5px;
+    margin: 0;
+    font-size: 35px;
+    line-height: 1.2;
+    cursor: pointer;
+    user-select: none;
+    touch-action: manipulation;
+    animation: float 1.5s ease-in-out infinite alternate;
+}
+
+.game-item:hover {
+    transform: scale(1.15);
+}
+
+/* Floating animation */
+
+@keyframes float {
+    from {
+        margin-top: 0;
+    }
+
+    to {
+        margin-top: 8px;
+    }
+}
+
+/* =====================================
+   12. FOOTER
+===================================== */
+
+footer {
+    background: #17324d;
+    color: white;
+    padding: 20px;
+    margin-top: 35px;
+}
+
+footer p {
+    margin: 5px;
+}
+
+/* =====================================
+   13. MOBILE-FRIENDLY DESIGN
+===================================== */
+
+@media (max-width: 600px) {
+
+    main {
+        padding: 12px;
+    }
+
+    .intro h1 {
+        font-size: 26px;
+    }
+
+    .scoreboard {
+        gap: 8px;
+    }
+
+    .score-card {
+        min-width: 95px;
+        padding: 12px;
+    }
+
+    #gameArea {
+        min-height: 400px;
+    }
+
+    .game-item {
+        font-size: 32px;
+    }
+
+    button {
+        padding: 12px 16px;
+    }
+}
