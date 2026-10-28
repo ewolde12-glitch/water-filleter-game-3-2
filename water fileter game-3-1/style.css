@@ -180,6 +180,13 @@ button:disabled {
     opacity: 0.6;
 }
 
+.button-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
 .start-button {
     background: linear-gradient(180deg, var(--sky-500), var(--sky-700));
     color: var(--white);
@@ -225,16 +232,18 @@ button:disabled {
     touch-action: manipulation;
     animation: float 1.5s ease-in-out infinite alternate;
     filter: drop-shadow(0 4px 6px rgba(23, 50, 77, 0.12));
+    transition: filter 0.15s ease;
 }
 
 .game-item:hover {
-    transform: scale(1.12);
+    filter: drop-shadow(0 6px 8px rgba(23, 50, 77, 0.18));
 }
 
 @keyframes float {
     from {
         transform: translateY(0);
     }
+
     to {
         transform: translateY(8px);
     }
