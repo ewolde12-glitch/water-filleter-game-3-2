@@ -1,95 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A clean water game where players collect water and avoid germs and trash."
+    />
     <title>charity: water - Clean Water Game</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <header>
-        <div class="logo">charity: <span>water</span> 💧</div>
-        <p>Small actions can make a big difference!</p>
+      <div class="logo">charity: <span>water</span> 💧</div>
+      <p>Small actions can make a big difference!</p>
     </header>
 
     <main>
-        <section class="intro">
-            <h1>Catch the Clean Water!</h1>
-            <p>
-                Help make every drop count. Collect clean water,
-                avoid germs and trash, and reach your goal!
-            </p>
-        </section>
+      <section class="intro">
+        <h1>Catch the Clean Water!</h1>
+        <p>
+          Help make every drop count. Collect clean water, avoid germs and trash,
+          and reach your goal!
+        </p>
+      </section>
 
-        <div class="difficulty-control">
-            <label for="difficulty">Choose your difficulty:</label>
-            <select id="difficulty" aria-label="Choose game difficulty">
-                <option value="easy">Easy</option>
-                <option value="normal" selected>Normal</option>
-                <option value="hard">Hard</option>
-            </select>
+      <div class="difficulty-control">
+        <label for="difficulty">Choose your difficulty:</label>
+        <select id="difficulty" aria-label="Choose game difficulty">
+          <option value="easy">Easy</option>
+          <option value="normal" selected>Normal</option>
+          <option value="hard">Hard</option>
+        </select>
+      </div>
+
+      <section class="scoreboard" aria-label="Game statistics">
+        <div class="score-card">
+          <h3>Score</h3>
+          <p id="score">0</p>
         </div>
 
-        <section class="scoreboard" aria-label="Game statistics">
-            <div class="score-card">
-                <h3>Score</h3>
-                <p id="score">0</p>
-            </div>
-
-            <div class="score-card">
-                <h3>Time</h3>
-                <p><span id="time">30</span>s</p>
-            </div>
-
-            <div class="score-card">
-                <h3>Goal</h3>
-                <p id="goal">100</p>
-            </div>
-        </section>
-
-        <p id="progressText">Progress: 0%</p>
-
-        <div
-            class="progress-container"
-            role="progressbar"
-            aria-label="Progress toward the score goal"
-            aria-valuemin="0"
-            aria-valuemax="100"
-            aria-valuenow="0"
-            id="progressContainer"
-        >
-            <div id="progressBar"></div>
+        <div class="score-card">
+          <h3>Time</h3>
+          <p><span id="time">30</span>s</p>
         </div>
 
-        <section class="instructions">
-            <h2>How to Play</h2>
-            <p>💧 Clean water: +10 points</p>
-            <p>🦠 Germs: -5 points</p>
-            <p>🗑️ Trash: -10 points</p>
-            <p>🏆 Reach your goal before the timer ends!</p>
-        </section>
+        <div class="score-card">
+          <h3>Goal</h3>
+          <p id="goal">100</p>
+        </div>
+      </section>
 
+      <p id="progressText">Progress: 0%</p>
+
+      <div
+        class="progress-container"
+        role="progressbar"
+        aria-label="Progress toward the score goal"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="0"
+        id="progressContainer"
+      >
+        <div id="progressBar"></div>
+      </div>
+
+      <section class="instructions">
+        <h2>How to Play</h2>
+        <p>💧 Clean water: +10 points</p>
+        <p>🦠 Germs: -5 points</p>
+        <p>🗑️ Trash: -10 points</p>
+        <p>🏆 Reach your goal before the timer ends!</p>
+      </section>
+
+      <div class="button-row">
         <button class="start-button" id="startButton">Start Game</button>
         <button class="reset-button" id="resetButton">Reset Game</button>
+      </div>
 
-        <div
-            class="game-message"
-            id="message"
-            role="status"
-            aria-live="polite"
-        >
-            Press Start Game to begin!
-        </div>
+      <div
+        class="game-message"
+        id="message"
+        role="status"
+        aria-live="polite"
+      >
+        Press Start Game to begin!
+      </div>
 
-        <section id="gameArea" aria-label="Game play area"></section>
+      <section id="gameArea" aria-label="Game play area"></section>
     </main>
 
     <footer>
-        <p><strong>charity: water 💧</strong></p>
-        <p>Every drop counts. Every action matters.</p>
-        <p>Educational student game project.</p>
+      <p><strong>charity: water 💧</strong></p>
+      <p>Every drop counts. Every action matters.</p>
+      <p>Educational student game project.</p>
     </footer>
 
     <script src="script.js" defer></script>
-</body>
+  </body>
 </html>
